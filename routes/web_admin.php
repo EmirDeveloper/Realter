@@ -10,7 +10,6 @@ use App\Http\Controllers\Admin\PropertyTypeController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\VerificationController;
 use Illuminate\Support\Facades\Route;
-use Spatie\Honeypot\ProtectAgainstSpam;
 
 Route::middleware('auth')
     ->prefix('/admin')
@@ -23,7 +22,7 @@ Route::middleware('auth')
         Route::resource('properties', PropertyController::class)->middleware('can:properties');
         Route::resource('propertyTypes', PropertyTypeController::class)->except(['show'])->middleware('can:propertyTypes');
         Route::resource('options', OptionController::class)->except(['show'])->middleware('can:options');
-        Route::resource('ownerTypes', OwnerTypeController::class)->except(['show'])->middleware('can:brands');
+        Route::resource('ownerTypes', OwnerTypeController::class)->except(['show'])->middleware('can:owner_types');
         Route::resource('attributes', AttributeController::class)->except(['show'])->middleware('can:attributes');
         Route::resource('attributeValues', AttributeValueController::class)->except(['index', 'show'])->middleware('can:attributes');
         Route::resource('locations', LocationController::class)->except(['show'])->middleware('can:locations');

@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class AttributeController extends Controller
 {
-    //
+    public function index() {
+        
+    }
 }

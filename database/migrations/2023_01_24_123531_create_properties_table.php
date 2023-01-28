@@ -19,8 +19,6 @@ return new class extends Migration
             $table->foreign('property_type_id')->references('id')->on('property_types')->cascadeOnDelete();
             $table->unsignedBigInteger('location_id')->index();
             $table->foreign('location_id')->references('id')->on('locations')->cascadeOnDelete();
-            $table->unsignedBigInteger('owner_type_id')->index();
-            $table->foreign('owner_type_id')->references('id')->on('owner_types')->cascadeOnDelete();
             $table->unsignedInteger('rent')->default(0);
             $table->unsignedInteger('area')->default(0);
             $table->unsignedInteger('repair')->default(0);
@@ -29,6 +27,7 @@ return new class extends Migration
             $table->unsignedInteger('price')->default(0);
             $table->unsignedInteger('documents')->default(0);
             $table->unsignedInteger('viewed')->default(0);
+            $table->unsignedInteger('ramainder_pay')->default(0);
             $table->string('name_tm');
             $table->string('name_en')->nullable();
             $table->string('slug')->unique();

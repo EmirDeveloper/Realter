@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('owner_types', function (Blueprint $table) {
-            $table->id();
-            $table->string('name_tm');
-            $table->string('name_en');
+        Schema::table('users', function (Blueprint $table) {
+            $table->json('permissions')->nullable();
         });
     }
 
@@ -27,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('owner_types');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('permissions');
+        });
     }
 };

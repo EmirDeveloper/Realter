@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             LocationSeeder::class,
-            OwnerTypeSeeder::class,
             PropertyTypeSeeder::class,
             OptionSeeder::class
         ]);
@@ -32,9 +31,8 @@ class DatabaseSeeder extends Seeder
             $verification = Verification::factory()->create();
             if ($verification->status) {
                 Customer::factory()
-                   ->count(rand(1, 2))
                     ->create([
-                        'name' => $verification->phone,
+                        'phone' => $verification->phone,
                         'password' => bcrypt($verification->code),
                         'created_at' => $verification->created_at,
                     ]);

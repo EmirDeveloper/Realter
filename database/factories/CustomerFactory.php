@@ -18,7 +18,6 @@ class CustomerFactory extends Factory
     {
         return [
             'name' => fake()->unique()->name(),
-            'phone' => fake()->unique()->numberBetween(60000000, 65999999),
         ];
     }
 }

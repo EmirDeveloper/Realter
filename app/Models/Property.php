@@ -17,7 +17,7 @@ class Property extends Model
     {
         static::saving(function ($obj) 
         {
-            $obj->slug = str()->slug($obj->name_tm).'-'.rand(1000,9999);
+            $obj->slug = str()->slug($obj->name_tm).'-'.str()->random(3);
         });
     }
 
@@ -29,11 +29,6 @@ class Property extends Model
     public function locations() 
     {
         return $this->belongsTo(Location::class);
-    }
-
-    public function owner_types() 
-    {
-        return $this->belongsTo(OwnerType::class);
     }
 
     public function property_types() 
